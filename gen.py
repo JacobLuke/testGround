@@ -17,7 +17,7 @@ def getRandNumbers(count):
         params = urllib.urlencode({'min': 0, 'max': 255, 'format': 'plain', 'num': 1000, 'rnd': 'new', 'col': 1, 'base': 10})
         conn.request('GET', '/integers/?' + params)
         response = conn.getresponse().read()
-        return [random.randrange(256) for i in range(count)]
+        return [int(i) for i in response.split()]
     ret = []
     while count > 1000:
         ret.extend[getRandInner(1000)]
